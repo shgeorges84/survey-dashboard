@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'">
+<title>Printable report</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  :root{--bg:#F2EEE3; --ink:#2A2823; --ink-soft:#6B6558; --forest:#33513D; --forest-deep:#223829; --gold-soft:#E8D5AC; --card-border:#E2D9C2;}
+  html,body{margin:0;} body{background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,sans-serif;}
+  .pp-hint{font-size:13px; color:var(--ink-soft);} .pp-hint.flag{color:var(--ink); font-weight:600; background:var(--gold-soft); padding:4px 8px; border-radius:4px;}
+  .pp-hint kbd{font-family:inherit; font-weight:700; background:#fff; border:1px solid var(--card-border); border-radius:4px; padding:1px 6px;}
+  .pp-empty{max-width:640px; margin:60px auto; padding:0 16px; font-size:15px; line-height:1.55;}
+  @media print{ .po-bar{display:none !important;} }
+</style>
+<style id="rep"></style>
+<script src="purify.min.js"></script>
+<script src="print.js" defer></script>
+</head>
+<body class="po-open">
+<div class="po" id="printOverlay">
+  <div class="po-bar">
+    <div class="po-title" id="ppTitle">Report</div>
+    <div class="po-actions">
+      <span class="pp-hint" id="ppHint"></span>
+      <button type="button" class="po-btn" id="ppPrint">Print</button>
+      <button type="button" class="po-btn" id="ppPdf">Save as PDF</button>
+    </div>
+  </div>
+  <article class="sheet" id="ppSheet"><p>Loading report…</p></article>
+</div>
+</body>
+</html>
