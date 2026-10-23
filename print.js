@@ -44,7 +44,11 @@
     });
     var t = String(d.t || 'Report').slice(0, 200);
     document.title = t; titleEl.textContent = t;
-    setTimeout(function(){ doPrint(false); }, 700);
+    // Open the print window once this tab is in front (Chrome ignores print in background tabs).
+    var printed = false;
+    function autoPrint(){ if (printed || document.visibilityState !== 'visible') return; printed = true; setTimeout(function(){ try { window.print(); } catch (e) {} }, 500); }
+    document.addEventListener('visibilitychange', autoPrint);
+    autoPrint();
   }).catch(function(){
     fail('This report link is incomplete or damaged. Go back to the dashboard and click “Print or save as PDF” again.');
   });
